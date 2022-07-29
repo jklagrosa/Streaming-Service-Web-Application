@@ -11,7 +11,7 @@ let colorStyle = {
 
 export const HeroComponentStyled = styled.div`
   padding: 4rem 2rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
     url("/img/test.jpg") no-repeat;
   background-size: cover;
   background-position: center;
@@ -38,7 +38,7 @@ export const HeroTagStyled = styled.h2`
 
 export const HeroTitle = styled.h1`
   margin: 0;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -47,8 +47,55 @@ export const HeroTitle = styled.h1`
 export const HeroSpan = styled.span`
   font-size: 1rem;
   color: ${colorStyle.GRAY};
+  cursor: default;
+`;
+
+export const HeronSpanGenre = styled(HeroSpan)`
+  background: red;
+  color: white;
+  padding: 0.41rem;
 `;
 
 export const HeronDivider = styled.span`
   margin: 0 1rem;
+`;
+
+export const HeroParagraph = styled.p`
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 600px;
+  /* background: red; */
+  font-size: 1rem;
+  color: ${colorStyle.GRAY};
+`;
+
+export const HeroDetailParagraph = styled.p`
+  margin: 0;
+  font-size: 1rem;
+  color: ${colorStyle.RED};
+  margin-bottom: 0.64rem;
+  span {
+    color: ${colorStyle.GRAY};
+  }
+`;
+
+export const HeroButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.8rem 1.25rem;
+  background: ${colorStyle.RED};
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+
+  &:hover {
+    background: ${colorStyle.H_RED};
+  }
 `;
