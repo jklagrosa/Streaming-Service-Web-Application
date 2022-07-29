@@ -35,6 +35,24 @@ export const HeroTagStyled = styled.h2`
   margin-bottom: 1rem;
   color: ${colorStyle.GRAY};
 
+  /* ##################################################################### */
+  @media only screen and (min-width: 2501px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 2.25rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.5rem;
+  }
+  /* ##################################################################### */
+
   @media only screen and (max-width: 650px) {
     font-size: 1rem;
   }
@@ -46,6 +64,24 @@ export const HeroTitle = styled.h1`
   font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 1rem;
+
+  /* ##################################################################### */
+  @media only screen and (min-width: 2501px) {
+    font-size: 6.75rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 6.25rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 5.25rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 4rem;
+  }
+  /* ##################################################################### */
 
   @media only screen and (max-width: 650px) {
     font-size: 2.5rem;
@@ -60,6 +96,24 @@ export const HeroSpan = styled.span`
   font-size: 1rem;
   color: ${colorStyle.GRAY};
   cursor: default;
+
+  /* ##################################################################### */
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+  /* ##################################################################### */
 
   @media only screen and (max-width: 650px) {
     font-size: 0.9rem;
@@ -77,7 +131,8 @@ export const HeronSpanGenre = styled(HeroSpan)`
   padding: 0.41rem;
 
   @media only screen and (max-width: 425px) {
-    width: 55px;
+    width: 53px;
+    padding: 0.328rem;
   }
 `;
 
@@ -96,6 +151,28 @@ export const HeroParagraph = styled.p`
   /* background: red; */
   font-size: 1rem;
   color: ${colorStyle.GRAY};
+
+  /* ##################################################################### */
+  @media only screen and (min-width: 2501px) {
+    width: 1300px;
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    width: 1150px;
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    width: 1000px;
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    width: 800px;
+    font-size: 1.25rem;
+  }
+  /* ##################################################################### */
 
   @media only screen and (max-width: 650px) {
     font-size: 0.9rem;
@@ -119,6 +196,27 @@ export const HeroDetailParagraph = styled.p`
   span {
     color: ${colorStyle.GRAY};
   }
+
+  /* ##################################################################### */
+
+  /* REMEMBER: USE THIS MEDIA QUERIES TO OTHER P TAGS. */
+
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+  /* ##################################################################### */
 
   @media only screen and (max-width: 650px) {
     font-size: 0.9rem;
@@ -147,6 +245,24 @@ export const HeroButton = styled.button`
     background: ${colorStyle.H_RED};
     border: 1px solid ${colorStyle.H_RED};
   }
+
+  /* ##################################################################### */
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+  /* ##################################################################### */
 
   @media only screen and (max-width: 650px) {
     font-size: 0.9rem;
