@@ -3,4 +3,9 @@
 ._hero_play_btn_{
     margin-right: 0.512rem;
     font-size: 1.5rem;
+
+    @media only screen and (max-width: 375px){
+        margin-right: 0.328rem;
+        font-size: 1.25rem;
+    }
 }

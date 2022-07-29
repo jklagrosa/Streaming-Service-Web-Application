@@ -34,6 +34,10 @@ export const HeroTagStyled = styled.h2`
   padding-left: 0.64rem;
   margin-bottom: 1rem;
   color: ${colorStyle.GRAY};
+
+  @media only screen and (max-width: 650px) {
+    font-size: 1rem;
+  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -42,22 +46,47 @@ export const HeroTitle = styled.h1`
   font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 1rem;
+
+  @media only screen and (max-width: 650px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const HeroSpan = styled.span`
   font-size: 1rem;
   color: ${colorStyle.GRAY};
   cursor: default;
+
+  @media only screen and (max-width: 650px) {
+    font-size: 0.9rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    margin-bottom: 0.64rem;
+    display: block;
+  }
 `;
 
 export const HeronSpanGenre = styled(HeroSpan)`
   background: red;
   color: white;
   padding: 0.41rem;
+
+  @media only screen and (max-width: 425px) {
+    width: 55px;
+  }
 `;
 
 export const HeronDivider = styled.span`
   margin: 0 1rem;
+
+  @media only screen and (max-width: 425px) {
+    display: none;
+  }
 `;
 
 export const HeroParagraph = styled.p`
@@ -67,6 +96,19 @@ export const HeroParagraph = styled.p`
   /* background: red; */
   font-size: 1rem;
   color: ${colorStyle.GRAY};
+
+  @media only screen and (max-width: 650px) {
+    font-size: 0.9rem;
+    max-width: 450px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    max-width: 350px;
+  }
+
+  @media only screen and (max-width: 380px) {
+    max-width: 300px;
+  }
 `;
 
 export const HeroDetailParagraph = styled.p`
@@ -77,6 +119,10 @@ export const HeroDetailParagraph = styled.p`
   span {
     color: ${colorStyle.GRAY};
   }
+
+  @media only screen and (max-width: 650px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const HeroButton = styled.button`
@@ -84,9 +130,10 @@ export const HeroButton = styled.button`
   cursor: pointer;
   margin-top: 2rem;
 
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  display: inline-block;
 
   padding: 0.8rem 1.25rem;
   background: ${colorStyle.RED};
@@ -94,8 +141,42 @@ export const HeroButton = styled.button`
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
+  border: 1px solid ${colorStyle.RED};
 
   &:hover {
     background: ${colorStyle.H_RED};
+    border: 1px solid ${colorStyle.H_RED};
+  }
+
+  @media only screen and (max-width: 650px) {
+    font-size: 0.9rem;
+    padding: 0.64rem 1rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    padding: 0.64rem;
+  }
+
+  @media only screen and (max-width: 375px) {
+    padding: 0.41rem;
+  }
+`;
+
+export const HeroButtonOutline = styled(HeroButton)`
+  background: transparent;
+  border: 1px solid white;
+`;
+
+export const HeroButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeroButtonDivider = styled.span`
+  margin: 0 0.64rem;
+
+  @media only screen and (max-width: 380px) {
+    margin: 0 0.328rem;
   }
 `;
