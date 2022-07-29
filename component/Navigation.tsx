@@ -13,7 +13,7 @@ import { IconButton } from "@chakra-ui/react";
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" expand="lg" className={styles._navigation_wrapper_}>
+    <Navbar expand="lg" className={styles._navigation_wrapper_}>
       <Container fluid="lg" className="p-0">
         <Navbar.Brand className={styles._navigation_brand_logo_}>
           PELI<span>KULA</span>
