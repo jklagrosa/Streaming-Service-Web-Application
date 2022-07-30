@@ -29,7 +29,7 @@ export const HeaderTagStyled = styled.h2`
   letter-spacing: 3px;
   border-left: 2px solid red;
   padding-left: 0.64rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   color: ${colorStyle.GRAY};
 
   /* ##################################################################### */
@@ -96,7 +96,7 @@ export const MovieCardStyled = styled.div`
   margin: 0 auto;
   width: 100%;
   min-height: 400px;
-  background: green;
+  /* background: green; */
   transition: all 0.2s ease-in-out;
 
   @media only screen and (min-width: 2501px) {
@@ -229,6 +229,7 @@ export const MovieWatchTrailer = styled.a`
   margin-top: 2rem;
   text-decoration: underline;
   display: block;
+  width: 105px;
   /* background: red; */
   color: ${colorStyle.GRAY};
   transition: all 0.2s ease-in-out;
@@ -238,18 +239,22 @@ export const MovieWatchTrailer = styled.a`
   }
 
   @media only screen and (min-width: 2501px) {
+    width: 205px;
     font-size: 2rem;
   }
 
   @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    width: 185px;
     font-size: 1.75rem;
   }
 
   @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    width: 160px;
     font-size: 1.5rem;
   }
 
   @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    width: 130px;
     font-size: 1.25rem;
   }
 

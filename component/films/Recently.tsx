@@ -59,6 +59,7 @@ const Recently = () => {
                 <MovieDetail>Action</MovieDetail>
 
                 {/*  */}
+
                 <AbbrTagStyled title="Watch the trailer of The rising sun of john">
                   <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
                 </AbbrTagStyled>
