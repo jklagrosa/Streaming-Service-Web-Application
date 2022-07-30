@@ -27,7 +27,203 @@ const Recently = () => {
           <HeaderTagStyled>Recently Added</HeaderTagStyled>
 
           <Row className="gx-3 gy-4">
-            <Col xs={12} sm={6} lg={3}>
+            <Col xs={12} sm={6} lg={3} xl={4}>
+              <MovieCardStyled id={styles._movie_Card_styled_override_}>
+                <MovieImage src="/img/test.jpg" alt="test" />
+                {/*  */}
+                <MovieActionStyled>
+                  <AbbrTagStyled title="Like">
+                    <AiFillLike
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Like_}
+                    />
+                  </AbbrTagStyled>
+                  <MovieDivider />
+                  <AbbrTagStyled title="Add to favourites">
+                    <BsFillSuitHeartFill
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Favs_}
+                    />
+                  </AbbrTagStyled>
+                </MovieActionStyled>
+                {/*  */}
+                <AbbrTagStyled title="Watch now">
+                  <MovieTitle>the rising sun of john</MovieTitle>
+                </AbbrTagStyled>
+                <br />
+                {/*  */}
+                <MovieDetail>1hr : 22mins</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>2015</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>Action</MovieDetail>
+
+                {/*  */}
+                <AbbrTagStyled title="Watch the trailer of The rising sun of john">
+                  <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
+                </AbbrTagStyled>
+
+                <div className={styles._movie_play_button_wrapper_}>
+                  <AbbrTagStyled title="Watch now">
+                    <BsPlayFill
+                      className={styles.movie_play_button_}
+                      onClick={() => alert("wew")}
+                    />
+                  </AbbrTagStyled>
+                </div>
+              </MovieCardStyled>
+
+              {/* ######################################### */}
+            </Col>
+            {/*  */}
+            <Col xs={12} sm={6} lg={3} xl={4}>
+              <MovieCardStyled id={styles._movie_Card_styled_override_}>
+                <MovieImage src="/img/test.jpg" alt="test" />
+                {/*  */}
+                <MovieActionStyled>
+                  <AbbrTagStyled title="Like">
+                    <AiFillLike
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Like_}
+                    />
+                  </AbbrTagStyled>
+                  <MovieDivider />
+                  <AbbrTagStyled title="Add to favourites">
+                    <BsFillSuitHeartFill
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Favs_}
+                    />
+                  </AbbrTagStyled>
+                </MovieActionStyled>
+                {/*  */}
+                <AbbrTagStyled title="Watch now">
+                  <MovieTitle>the rising sun of john</MovieTitle>
+                </AbbrTagStyled>
+                <br />
+                {/*  */}
+                <MovieDetail>1hr : 22mins</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>2015</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>Action</MovieDetail>
+
+                {/*  */}
+                <AbbrTagStyled title="Watch the trailer of The rising sun of john">
+                  <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
+                </AbbrTagStyled>
+
+                <div className={styles._movie_play_button_wrapper_}>
+                  <AbbrTagStyled title="Watch now">
+                    <BsPlayFill
+                      className={styles.movie_play_button_}
+                      onClick={() => alert("wew")}
+                    />
+                  </AbbrTagStyled>
+                </div>
+              </MovieCardStyled>
+
+              {/* ######################################### */}
+            </Col>
+            {/*  */}
+            <Col xs={12} sm={6} lg={3} xl={4}>
+              <MovieCardStyled id={styles._movie_Card_styled_override_}>
+                <MovieImage src="/img/test.jpg" alt="test" />
+                {/*  */}
+                <MovieActionStyled>
+                  <AbbrTagStyled title="Like">
+                    <AiFillLike
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Like_}
+                    />
+                  </AbbrTagStyled>
+                  <MovieDivider />
+                  <AbbrTagStyled title="Add to favourites">
+                    <BsFillSuitHeartFill
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Favs_}
+                    />
+                  </AbbrTagStyled>
+                </MovieActionStyled>
+                {/*  */}
+                <AbbrTagStyled title="Watch now">
+                  <MovieTitle>the rising sun of john</MovieTitle>
+                </AbbrTagStyled>
+                <br />
+                {/*  */}
+                <MovieDetail>1hr : 22mins</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>2015</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>Action</MovieDetail>
+
+                {/*  */}
+                <AbbrTagStyled title="Watch the trailer of The rising sun of john">
+                  <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
+                </AbbrTagStyled>
+
+                <div className={styles._movie_play_button_wrapper_}>
+                  <AbbrTagStyled title="Watch now">
+                    <BsPlayFill
+                      className={styles.movie_play_button_}
+                      onClick={() => alert("wew")}
+                    />
+                  </AbbrTagStyled>
+                </div>
+              </MovieCardStyled>
+
+              {/* ######################################### */}
+            </Col>
+            {/*  */}
+            <Col xs={12} sm={6} lg={3} xl={4}>
+              <MovieCardStyled id={styles._movie_Card_styled_override_}>
+                <MovieImage src="/img/test.jpg" alt="test" />
+                {/*  */}
+                <MovieActionStyled>
+                  <AbbrTagStyled title="Like">
+                    <AiFillLike
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Like_}
+                    />
+                  </AbbrTagStyled>
+                  <MovieDivider />
+                  <AbbrTagStyled title="Add to favourites">
+                    <BsFillSuitHeartFill
+                      className={styles._movie_component_icons_}
+                      id={styles._movie_component_icons_id_Favs_}
+                    />
+                  </AbbrTagStyled>
+                </MovieActionStyled>
+                {/*  */}
+                <AbbrTagStyled title="Watch now">
+                  <MovieTitle>the rising sun of john</MovieTitle>
+                </AbbrTagStyled>
+                <br />
+                {/*  */}
+                <MovieDetail>1hr : 22mins</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>2015</MovieDetail>
+                <MovieDivider>&#183;</MovieDivider>
+                <MovieDetail>Action</MovieDetail>
+
+                {/*  */}
+                <AbbrTagStyled title="Watch the trailer of The rising sun of john">
+                  <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
+                </AbbrTagStyled>
+
+                <div className={styles._movie_play_button_wrapper_}>
+                  <AbbrTagStyled title="Watch now">
+                    <BsPlayFill
+                      className={styles.movie_play_button_}
+                      onClick={() => alert("wew")}
+                    />
+                  </AbbrTagStyled>
+                </div>
+              </MovieCardStyled>
+
+              {/* ######################################### */}
+            </Col>
+            {/*  */}
+            <Col xs={12} sm={6} lg={3} xl={4}>
               <MovieCardStyled id={styles._movie_Card_styled_override_}>
                 <MovieImage src="/img/test.jpg" alt="test" />
                 {/*  */}

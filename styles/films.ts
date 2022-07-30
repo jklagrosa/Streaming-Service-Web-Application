@@ -99,6 +99,24 @@ export const MovieCardStyled = styled.div`
   background: green;
   transition: all 0.2s ease-in-out;
 
+  @media only screen and (min-width: 2501px) {
+    min-height: 580px;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    min-height: 560px;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    min-height: 530px;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    min-height: 500px;
+  }
+
+  /* ############################################################# */
+
   @media only screen and (max-width: 1199px) {
     min-height: 350px;
   }
@@ -146,6 +164,24 @@ export const MovieTitle = styled.h3`
     color: ${colorStyle.RED};
   }
 
+  @media only screen and (min-width: 2501px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 2.25rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.8rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.5rem;
+  }
+
+  /* ############################################################# */
+
   @media only screen and (max-width: 1199px) {
     font-size: 1rem;
     margin-bottom: 0.64rem;
@@ -155,6 +191,24 @@ export const MovieTitle = styled.h3`
 export const MovieDetail = styled.span`
   font-size: 1rem;
   color: ${colorStyle.DARK_GRAY};
+
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+
+  /* ############################################################# */
 
   @media only screen and (max-width: 1199px) {
     font-size: 0.9rem;
@@ -182,6 +236,24 @@ export const MovieWatchTrailer = styled.a`
   &:hover {
     color: ${colorStyle.DARK_GRAY};
   }
+
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+
+  /* ############################################################# */
 
   @media only screen and (max-width: 1199px) {
     font-size: 0.9rem;
