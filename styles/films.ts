@@ -91,10 +91,33 @@ export const ParagraphStyled = styled.p`
 `;
 
 export const MovieCardStyled = styled.div`
+  position: relative;
+
   margin: 0 auto;
   width: 100%;
   min-height: 400px;
-  /* background: green; */
+  background: green;
+  transition: all 0.2s ease-in-out;
+
+  @media only screen and (max-width: 1199px) {
+    min-height: 350px;
+  }
+
+  @media only screen and (max-width: 991px) {
+    min-height: 500px;
+  }
+
+  @media only screen and (max-width: 830px) {
+    min-height: 450px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    min-height: 400px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    min-height: 370px;
+  }
 `;
 
 export const MovieImage = styled.img`
@@ -122,11 +145,20 @@ export const MovieTitle = styled.h3`
   &:hover {
     color: ${colorStyle.RED};
   }
+
+  @media only screen and (max-width: 1199px) {
+    font-size: 1rem;
+    margin-bottom: 0.64rem;
+  }
 `;
 
 export const MovieDetail = styled.span`
   font-size: 1rem;
   color: ${colorStyle.DARK_GRAY};
+
+  @media only screen and (max-width: 1199px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const MovieDivider = styled.span`
@@ -142,11 +174,24 @@ export const MovieWatchTrailer = styled.a`
   cursor: pointer;
   margin-top: 2rem;
   text-decoration: underline;
-  display: inline-block;
+  display: block;
+  /* background: red; */
   color: ${colorStyle.GRAY};
   transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${colorStyle.DARK_GRAY};
   }
+
+  @media only screen and (max-width: 1199px) {
+    font-size: 0.9rem;
+  }
+`;
+
+export const MovieWatchButton = styled.a`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 `;

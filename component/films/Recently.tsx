@@ -14,7 +14,7 @@ import {
 import { AbbrTagStyled } from "../../styles/utils";
 
 import { AiFillLike } from "react-icons/ai";
-import { BsFillSuitHeartFill } from "react-icons/bs";
+import { BsFillSuitHeartFill, BsPlayFill } from "react-icons/bs";
 
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../styles/Movie.module.scss";
@@ -27,8 +27,8 @@ const Recently = () => {
           <HeaderTagStyled>Recently Added</HeaderTagStyled>
 
           <Row className="gx-3 gy-4">
-            <Col xs={12} md={6} lg={3}>
-              <MovieCardStyled>
+            <Col xs={12} sm={6} lg={3}>
+              <MovieCardStyled id={styles._movie_Card_styled_override_}>
                 <MovieImage src="/img/test.jpg" alt="test" />
                 {/*  */}
                 <MovieActionStyled>
@@ -62,13 +62,18 @@ const Recently = () => {
                 <AbbrTagStyled title="Watch the trailer of The rising sun of john">
                   <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
                 </AbbrTagStyled>
-                          </MovieCardStyled>
-                          
 
-                          {/* ######################################### */}
-                          
-                          <div></div>
+                <div className={styles._movie_play_button_wrapper_}>
+                  <AbbrTagStyled title="Watch now">
+                    <BsPlayFill
+                      className={styles.movie_play_button_}
+                      onClick={() => alert("wew")}
+                    />
+                  </AbbrTagStyled>
+                </div>
+              </MovieCardStyled>
 
+              {/* ######################################### */}
             </Col>
             {/*  */}
           </Row>

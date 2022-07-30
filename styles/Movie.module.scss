@@ -25,3 +25,44 @@
         color: $H_RED;
     }
 }
+
+
+
+
+
+
+#_movie_Card_styled_override_{
+    transition: all 0.2s ease-in-out !important;
+    &:hover{
+     ._movie_play_button_wrapper_{
+            transition: all 0.2s ease-in-out !important;
+        display: block;
+     }
+    }
+}
+
+
+// POSITION ABSOLUTE
+
+._movie_play_button_wrapper_{
+    display: none;
+            cursor: pointer;
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: $RED;
+    padding: 0.64rem;
+    transition: all 0.2s ease-in-out;
+    
+        &:hover {
+            background: $H_RED;
+        }
+
+    .movie_play_button_{
+        color: white;
+        font-size: 2rem;
+       
+    }
+}
