@@ -98,3 +98,9 @@ export const FooterLinksTechUsed = styled(FooterLinks)`
     text-decoration: none;
   }
 `;
+
+export const CopyrightContainer = styled.div`
+  padding: 1rem;
+  background: ${colorStyle.BLACK};
+  text-align: center;
+`;
