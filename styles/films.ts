@@ -19,7 +19,7 @@ export const ContainerStyled = styled.div`
   @media only screen and (max-width: 768px) {
     padding: 2rem 1rem;
   }
-`;
+`; 
 
 export const HeaderTagStyled = styled.h2`
   margin: 0;
