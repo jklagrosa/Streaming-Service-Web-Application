@@ -26,7 +26,7 @@ const Recently = () => {
         <Container fluid="lg" className="p-0">
           <HeaderTagStyled>Recently Added</HeaderTagStyled>
 
-          <Row className="gx-3 gy-4">
+          <Row className="gx-3 gy-5">
             <Col xs={12} sm={6} lg={3} xl={4}>
               <MovieCardStyled id={styles._movie_Card_styled_override_}>
                 <MovieImage src="/img/test.jpg" alt="test" />
