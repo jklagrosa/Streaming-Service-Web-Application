@@ -28,7 +28,7 @@ const Hero = () => {
         <HeroTitle>The Rising Sun Of John</HeroTitle>
         {/*  */}
         <AbbrTagStyled title="Duration of the movie">
-          <HeroSpan>1hr:22mins</HeroSpan>
+          <HeroSpan>1hr : 22mins</HeroSpan>
         </AbbrTagStyled>
         {/*  */}
         <HeronDivider>&#183;</HeronDivider>

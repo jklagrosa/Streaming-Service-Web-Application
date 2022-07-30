@@ -1,0 +1,27 @@
+@import "../styles/utils.module.scss";
+
+
+._movie_component_icons_{
+    cursor: pointer;
+    font-size: 1.25rem;
+
+ 
+}
+
+
+#_movie_component_icons_id_Like_{
+    color: $FB_BLUE;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+                color: $FB_BLUE_HOVER;
+            }
+}
+
+#_movie_component_icons_id_Favs_ {
+    color: $RED;
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+        color: $H_RED;
+    }
+}

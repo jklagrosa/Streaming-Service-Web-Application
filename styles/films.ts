@@ -7,6 +7,8 @@ let colorStyle = {
   H_RED: "#B60711",
   GRAY: "#cecfd1",
   DARK_GRAY: "darkgray",
+  FB_BLUE: "#1877f2",
+  FB_BLUE_HOVER: "#0a54b3",
 };
 
 export const ContainerStyled = styled.div`
@@ -27,7 +29,7 @@ export const HeaderTagStyled = styled.h2`
   letter-spacing: 3px;
   border-left: 2px solid red;
   padding-left: 0.64rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: ${colorStyle.GRAY};
 
   /* ##################################################################### */
@@ -85,5 +87,66 @@ export const ParagraphStyled = styled.p`
 
   @media only screen and (max-width: 650px) {
     font-size: 0.9rem;
+  }
+`;
+
+export const MovieCardStyled = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  min-height: 400px;
+  /* background: green; */
+`;
+
+export const MovieImage = styled.img`
+  width: 100%;
+  display: block;
+  margin-bottom: 0.64rem;
+`;
+
+export const MovieActionStyled = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  /* background: red; */
+`;
+
+export const MovieTitle = styled.h3`
+  margin: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.25rem;
+  transition: all 0.2s ease-in-out;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+
+  &:hover {
+    color: ${colorStyle.RED};
+  }
+`;
+
+export const MovieDetail = styled.span`
+  font-size: 1rem;
+  color: ${colorStyle.DARK_GRAY};
+`;
+
+export const MovieDivider = styled.span`
+  margin: 0 0.64rem;
+
+  /* @media only screen and (max-width: 425px) {
+    display: none;
+  } */
+`;
+
+export const MovieWatchTrailer = styled.a`
+  all: unset;
+  cursor: pointer;
+  margin-top: 2rem;
+  text-decoration: underline;
+  display: inline-block;
+  color: ${colorStyle.GRAY};
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: ${colorStyle.DARK_GRAY};
   }
 `;
