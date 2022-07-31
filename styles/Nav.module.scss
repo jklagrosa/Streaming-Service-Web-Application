@@ -199,6 +199,30 @@
 
         }
 
+
+
+
+                 #_navigation_log_in_btn_ {
+                     color: $FB_BLUE;
+                     text-decoration: underline;
+        
+                     &:hover {
+                         color: $FB_BLUE_HOVER;
+                     }
+                 }
+
+
+
+
+
+        #_navigation_log_out_btn_{
+            color: $RED;
+            text-decoration: underline;
+            &:hover{
+                color: $H_RED;
+            }
+        }
+
         ._navigation_links_main_icon_{
             // MAIN ICON
             color: white;
