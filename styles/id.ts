@@ -23,14 +23,18 @@ export const ContainerStyled = styled.div`
 `;
 
 export const VideoPlayer = styled.iframe`
+  margin-bottom: 2rem;
   width: 100%;
   min-height: 500px;
 `;
 
 export const VideoParagraph = styled.p`
   margin: 0;
+  width: 900px;
+  /* background: red; */
   font-size: 1rem;
   color: ${colorStyle.DARK_GRAY};
+  margin-bottom: 1.25rem;
 
   @media only screen and (min-width: 2501px) {
     font-size: 2rem;
@@ -57,7 +61,7 @@ export const VideoParagraph = styled.p`
 
 export const VideTitle = styled.h2`
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 2rem;
   text-transform: capitalize;
   font-weight: 900;
   letter-spacing: 1px;
@@ -89,8 +93,11 @@ export const VideTitle = styled.h2`
 
 export const VideoDetail = styled.span`
   font-size: 1rem;
-  color: ${colorStyle.DARK_GRAY};
-  background: red;
+  color: white;
+  /* background: red; */
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 1rem;
 
   @media only screen and (min-width: 2501px) {
     font-size: 2rem;
@@ -113,4 +120,10 @@ export const VideoDetail = styled.span`
   @media only screen and (max-width: 1199px) {
     font-size: 0.9rem;
   }
+`;
+
+export const VideoDetailOther = styled(VideoDetail)`
+  color: ${colorStyle.DARK_GRAY};
+  /* background: blue; */
+  width: 400px;
 `;
