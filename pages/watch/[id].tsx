@@ -45,7 +45,7 @@ const Id = () => {
           <VideoDetailOther>English</VideoDetailOther>
           <br />
           <VideoDetail>Genre</VideoDetail>
-          <VideoDetailOther>Action, Adventure, Drama</VideoDetailOther>
+          <VideoDetailOther>Action, Adventure</VideoDetailOther>
           <br />
           <VideoDetail>Run Time</VideoDetail>
           <VideoDetailOther>2hr : 22mins</VideoDetailOther>
