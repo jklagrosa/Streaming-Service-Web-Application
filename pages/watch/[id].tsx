@@ -1,5 +1,11 @@
 import React from "react";
-import { ContainerStyled, VideoPlayer } from "../../styles/id";
+import {
+  ContainerStyled,
+  VideoPlayer,
+  VideoParagraph,
+  VideoDetail,
+  VideTitle,
+} from "../../styles/id";
 import { Container } from "react-bootstrap";
 import Navigation from "../../component/Navigation";
 import Footer from "../../component/Footer";
@@ -20,6 +26,7 @@ const Id = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></VideoPlayer>
+          <VideTitle>The Hidden liufe oif sopas</VideTitle>
         </Container>
       </ContainerStyled>
       <Footer />

@@ -26,3 +26,91 @@ export const VideoPlayer = styled.iframe`
   width: 100%;
   min-height: 500px;
 `;
+
+export const VideoParagraph = styled.p`
+  margin: 0;
+  font-size: 1rem;
+  color: ${colorStyle.DARK_GRAY};
+
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+
+  /* ############################################################# */
+
+  @media only screen and (max-width: 1199px) {
+    font-size: 0.9rem;
+  }
+`;
+
+export const VideTitle = styled.h2`
+  margin: 0;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  color: white;
+
+  /* ##################################################################### */
+  @media only screen and (min-width: 2501px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 2.25rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.5rem;
+  }
+  /* ##################################################################### */
+
+  @media only screen and (max-width: 650px) {
+    font-size: 1rem;
+  }
+`;
+
+export const VideoDetail = styled.span`
+  font-size: 1rem;
+  color: ${colorStyle.DARK_GRAY};
+  background: red;
+
+  @media only screen and (min-width: 2501px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    font-size: 1.25rem;
+  }
+
+  /* ############################################################# */
+
+  @media only screen and (max-width: 1199px) {
+    font-size: 0.9rem;
+  }
+`;
