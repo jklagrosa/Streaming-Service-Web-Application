@@ -22,15 +22,13 @@ import Navigation from "../../component/Navigation";
 import Footer from "../../component/Footer";
 import Copyright from "../../component/Copyright";
 
-const SearchPage = () => {
+const Favourites = () => {
   return (
     <>
       <Navigation />
       <ContainerStyled>
         <Container fluid="lg" className="p-0">
-          <HeaderTagStyled>
-            Search Results For: <q>WEWEW</q>
-          </HeaderTagStyled>
+          <HeaderTagStyled>My Favourites</HeaderTagStyled>
 
           <Row className="gx-3 gy-5">
             <Col xs={12} sm={6} lg={3} xl={4}>
@@ -92,4 +90,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default Favourites;
