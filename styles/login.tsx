@@ -36,35 +36,39 @@ export const FormWrapper = styled.form`
 `;
 
 export const LoginTitle = styled.h6`
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 900;
   color: white;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
 
   span {
     color: ${colorStyle.RED};
   }
 
   @media only screen and (min-width: 2501px) {
-    font-size: 2rem;
+    font-size: 3.25rem;
   }
 
   @media only screen and (min-width: 2201px) and (max-width: 2500px) {
-    font-size: 1.75rem;
+    font-size: 2.75rem;
   }
 
   @media only screen and (min-width: 1801px) and (max-width: 2200px) {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 
   @media only screen and (min-width: 1400px) and (max-width: 1800px) {
-    font-size: 1.25rem;
+    font-size: 2.25rem;
   }
 
   /* ############################################################# */
 
   @media only screen and (max-width: 1199px) {
-    font-size: 0.9rem;
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -136,18 +140,22 @@ export const InputStyled = styled.input`
   color: white;
 
   @media only screen and (min-width: 2501px) {
+    width: 520px;
     font-size: 2rem;
   }
 
   @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    width: 460px;
     font-size: 1.75rem;
   }
 
   @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    width: 400px;
     font-size: 1.5rem;
   }
 
   @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    width: 350px;
     font-size: 1.25rem;
   }
 
@@ -215,22 +223,26 @@ export const BackToHome = styled.a`
   color: ${colorStyle.FB_BLUE};
   text-decoration: underline;
   width: 150px;
-  /* background-color: red; */
+  background-color: red;
   margin-bottom: 0.64rem;
 
   @media only screen and (min-width: 2501px) {
+    width: 300px;
     font-size: 2rem;
   }
 
   @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+    width: 280px;
     font-size: 1.75rem;
   }
 
   @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+    width: 230px;
     font-size: 1.5rem;
   }
 
   @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+    width: 190px;
     font-size: 1.25rem;
   }
 
