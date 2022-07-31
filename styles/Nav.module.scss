@@ -1,5 +1,29 @@
 @import "../styles/utils.module.scss";
 
+
+
+        // OFFCANVAS LINKS
+        #_offcanvas_title_ {
+            color: $DARK;
+            font-weight: 900;
+            span{
+                color: $RED;
+            }
+        }
+    
+        // END
+
+        #_offcanvas_body_{
+            a{
+                display: inline-block;
+                background-color: red;
+            }
+        }
+
+
+
+
+
 ._navigation_wrapper_{
     // position: fixed;
     width: 100vw;
@@ -184,4 +208,8 @@
                           }
         }
     }
+
+
+
+
 }

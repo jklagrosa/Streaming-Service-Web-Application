@@ -81,11 +81,21 @@ const Navigation = () => {
       {/* LINKS OFFCANVAS */}
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title id={styles._offcanvas_title_}>
+            PELI<span>KULA</span>
+          </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+        <Offcanvas.Body id={styles._offcanvas_body_}>
+          <a href="#">Home</a>
+          <br />
+          <a href="#">Trending</a>
+          <br />
+          <a href="#">New</a>
+          <br />
+          <a href="#">Popular</a>
+          <br />
+          <a href="#">My Fave</a>
+          <br />
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
