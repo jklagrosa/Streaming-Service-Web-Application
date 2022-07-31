@@ -29,7 +29,8 @@
 
 
 #_movie_component_icons_id_Like_{
-    color: $FB_BLUE;
+    // color: $FB_BLUE;
+    color: $DARK_GRAY;
         transition: all 0.2s ease-in-out;
         &:hover {
                 color: $FB_BLUE_HOVER;
@@ -37,7 +38,8 @@
 }
 
 #_movie_component_icons_id_Favs_ {
-    color: $RED;
+    // color: $RED;
+    color: $DARK_GRAY;
     transition: all 0.2s ease-in-out;
 
     &:hover{

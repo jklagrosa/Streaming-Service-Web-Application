@@ -164,6 +164,14 @@ export const InputStyled = styled.input`
   @media only screen and (max-width: 1199px) {
     font-size: 0.9rem;
   }
+
+  @media only screen and (max-width: 425px) {
+    width: 250px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    width: 210px;
+  }
 `;
 
 export const LoginButton = styled.button`
@@ -223,7 +231,7 @@ export const BackToHome = styled.a`
   color: ${colorStyle.FB_BLUE};
   text-decoration: underline;
   width: 150px;
-  background-color: red;
+  /* background-color: red; */
   margin-bottom: 0.64rem;
 
   @media only screen and (min-width: 2501px) {

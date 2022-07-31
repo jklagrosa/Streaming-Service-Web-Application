@@ -27,12 +27,17 @@ const LoginPage = () => {
               <InputStyled type="text" placeholder="Username" />
               <LabelStyled>Password</LabelStyled>
               <InputStyled type="password" placeholder="Password" />
-              {/* ### */}
+              {/* ########################################### */}
+              {/* IF USER IS NOT LOGGED IN */}
               <LoginButton>Login as Demo User</LoginButton>
-              {/*  */}
+              {/* END */}
+              {/* ########################################### */}
+              {/* LOGIN LOADING STATE */}
               <LoadingButton>Please wait...</LoadingButton>
-              {/*  */}
-              <BackToHome>Back to homepage</BackToHome>
+              {/* END */}
+              <BackToHome onClick={() => (window.location.href = "/")}>
+                Back to homepage
+              </BackToHome>
             </FormWrapper>
           </LoginWrapper>
         </Container>
