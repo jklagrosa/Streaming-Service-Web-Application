@@ -79,7 +79,11 @@ const Navigation = () => {
       </Navbar>
 
       {/* LINKS OFFCANVAS */}
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        id={styles._offcanvas_main_wrapper_}
+      >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title id={styles._offcanvas_title_}>
             PELI<span>KULA</span>
@@ -96,6 +100,17 @@ const Navigation = () => {
           <br />
           <a href="#">My Fave</a>
           <br />
+          <hr className={styles._offcanvas_divider_} />
+          <a href="#">Search</a>
+          <br />
+          {/* IF USER IS NOT LOGGED IN */}
+          <a id={styles._link_action_btns_IN}>Log In</a>
+          {/* END */}
+          <br />
+          {/* ###################################### */}
+          {/* IF USER IS LOGGED IN */}
+          <a id={styles._link_action_btns_OUT}>Log Out</a>
+          {/* END */}
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}

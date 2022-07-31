@@ -1,6 +1,12 @@
 @import "../styles/utils.module.scss";
 
+        #_offcanvas_main_wrapper_{
+            width: 300px;
 
+            @media only screen and (max-width: 576px){
+                width: 230px;
+            }
+        }
 
         // OFFCANVAS LINKS
         #_offcanvas_title_ {
@@ -15,9 +21,42 @@
 
         #_offcanvas_body_{
             a{
+                margin-bottom: 1.25rem;
                 display: inline-block;
-                background-color: red;
+                font-size: 1.5rem;
+                color: $DARK;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    color: $DARK_GRAY;
+                }
+
+
+                @media only screen and (max-width: 576px) {
+                    font-size: 1.25rem;
+                }
+
+
             }
+
+            ._offcanvas_divider_{
+               margin: 2rem 0;
+            }
+
+            // LOG IN
+                #_link_action_btns_IN {
+                    color: $FB_BLUE;
+                    font-weight: 700;
+                        text-decoration: underline;
+                }
+            // END
+
+            // LOG OUT
+            #_link_action_btns_OUT{
+                color: red;
+                font-weight: 700;
+                text-decoration: underline;
+            }
+            // END
         }
 
 
