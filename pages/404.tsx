@@ -6,8 +6,11 @@ import {
   ParagraphText,
   BackToHomeBtn,
 } from "../styles/notFound";
+import { useRouter } from "next/router";
 
 const NotFound = () => {
+  const router = useRouter();
+
   return (
     <>
       <NotFoundStyled>
@@ -18,7 +21,9 @@ const NotFound = () => {
             unavailable or does not exist.
           </ParagraphText>
 
-          <BackToHomeBtn>Back to homepage</BackToHomeBtn>
+          <BackToHomeBtn onClick={() => router.replace("/")}>
+            Back to homepage
+          </BackToHomeBtn>
         </PageNotFoundWrapper>
       </NotFoundStyled>
     </>
