@@ -9,6 +9,7 @@ import {
 } from "../../styles/id";
 import { Container } from "react-bootstrap";
 import Navigation from "../../component/Navigation";
+import Recently from "../../component/films/Recently";
 import Footer from "../../component/Footer";
 import Copyright from "../../component/Copyright";
 
@@ -54,6 +55,7 @@ const Id = () => {
           <VideoDetailOther>January 14, 2022</VideoDetailOther>
         </Container>
       </ContainerStyled>
+      <Recently />
       <Footer />
       <Copyright />
     </>
