@@ -29,7 +29,7 @@ const Recently = () => {
           <Row className="gx-3 gy-5">
             <Col xs={12} sm={6} lg={3} xl={4}>
               <MovieCardStyled id={styles._movie_Card_styled_override_}>
-                <MovieImage src="/img/test.jpg" alt="test" />
+                <MovieImage src="/movies/1.jpg" alt="test" />
                 {/*  */}
                 <MovieActionStyled>
                   <AbbrTagStyled title="Like">
