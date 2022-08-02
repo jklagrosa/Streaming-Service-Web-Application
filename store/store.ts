@@ -10,6 +10,6 @@ const store = configureStore({
 type RootState = ReturnType<typeof store.getState>;
 
 // shorthand for useSelector e.g. useSelector(selectTodos)
-// export const selectTodos = (state: RootState) => state.todo.todos;
+export const showAllMovies = (state: RootState) => state.movie.movies;
 
 export default store;

@@ -18,8 +18,13 @@ import { BsFillSuitHeartFill, BsPlayFill } from "react-icons/bs";
 
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../styles/Movie.module.scss";
+import { useSelector } from "react-redux";
+import { showAllMovies } from "../../store/store";
 
 const Recently = () => {
+  const displayMovies = useSelector(showAllMovies);
+  console.log(displayMovies);
+
   return (
     <>
       <ContainerStyled>

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IMovie } from "../types/movie";
 
 // interface Todo {
 //   id: number;
@@ -18,7 +19,7 @@ const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    GET_MOVIES: (state, action: PayloadAction) => {
+    GET_MOVIES: (state, action: PayloadAction<IMovie | null>) => {
       state.movies = action.payload;
     },
   },

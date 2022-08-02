@@ -13,6 +13,7 @@ import { headersOpts, BASE_URL } from "../utils/other";
 import useSWR from "swr";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { GET_MOVIES } from "../store/movie";
 
 const fetcher = () => axios.get(`${BASE_URL}/api/movies`, headersOpts);
 
@@ -20,10 +21,12 @@ const Home: NextPage = () => {
   const { data, error } = useSWR("/api/movies", fetcher);
   const dispatch = useDispatch();
   if (data) {
-    dispatch()
+    dispatch(GET_MOVIES(data.data));
   }
 
-  console.log(data);
+  if (error) {
+    dispatch(GET_MOVIES(null));
+  }
 
   return (
     <>
