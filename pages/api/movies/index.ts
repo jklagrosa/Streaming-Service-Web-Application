@@ -23,4 +23,25 @@ export default async function handler(
       data: GET_ALL_MOVIES,
     });
   }
+
+  if (req.method === "POST") {
+    await Conn();
+
+    const { id } = req.body;
+
+    const GET_MOVIE = await Movie.findOne({ _id: id });
+    if (!GET_MOVIE) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+      });
+    }
+
+    console.log(GET_MOVIE);
+
+    return res.status(200).json({
+      success: true,
+      data: GET_MOVIE,
+    });
+  }
 }

@@ -11,8 +11,8 @@ let colorStyle = {
 
 export const HeroComponentStyled = styled.div`
   padding: 4rem 2rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
-    url("/img/test.jpg") no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+    url("/movies/8.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   width: 100vw;

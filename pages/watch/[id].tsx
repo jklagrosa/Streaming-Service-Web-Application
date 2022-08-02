@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ContainerStyled,
   VideoPlayer,
@@ -13,7 +13,59 @@ import Recently from "../../component/films/Recently";
 import Footer from "../../component/Footer";
 import Copyright from "../../component/Copyright";
 
-const Id = () => {
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../../utils/other";
+import { useRouter } from "next/router";
+import useSWR from "swr";
+import { GetStaticPaths, GetStaticProps } from "next";
+// import { ParsedUrlQuery } from "querystring";
+import Dbconnection from "../../utils/conn";
+import Movie from "../../models/movie";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  await Dbconnection();
+  const get_id = await Movie.find({});
+  const paths = get_id.map((x) => {
+    return {
+      params: { id: `${x._id}` },
+    };
+  });
+  console.log(paths);
+  if (!get_id) {
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  await Dbconnection();
+  const { params } = context;
+  const find_movie = await Movie.findOne({ _id: `${params?.id}` });
+  if (!find_movie) {
+    return {
+      props: {
+        data: null,
+      },
+    };
+  }
+
+  return {
+    props: {
+      data: JSON.stringify(find_movie),
+    },
+  };
+};
+
+const Id = ({ data }: { data: string }) => {
+  const parsed_data = data ? JSON.parse(data) : null;
+
   return (
     <>
       <Navigation />
@@ -22,37 +74,29 @@ const Id = () => {
           <VideoPlayer
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/lgBsm42Fs4k"
+            src={parsed_data.video}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></VideoPlayer>
-          <VideTitle>The Hidden liufe oif sopas</VideTitle>
-          <VideoParagraph>
-            Incididunt cupidatat quis quis ad incididunt minim culpa anim
-            incididunt proident Lorem tempor. Ut nulla amet fugiat magna esse
-            fugiat dolor pariatur veniam magna nulla ullamco. Non mollit id
-            labore consequat enim dolore dolore exercitation enim. Et id magna
-            sint consequat velit laborum fugiat nisi sint sint. Esse cupidatat
-            exercitation proident cupidatat duis aliquip. Nulla excepteur dolore
-            laboris nisi duis fugiat fugiat dolore nulla anim.
-          </VideoParagraph>
+          <VideTitle>{parsed_data.title}</VideTitle>
+          <VideoParagraph>{parsed_data.desc}</VideoParagraph>
 
           <VideoDetail>Language</VideoDetail>
-          <VideoDetailOther>English</VideoDetailOther>
+          <VideoDetailOther>{parsed_data.lang}</VideoDetailOther>
           <br />
           <VideoDetail>Subtitles</VideoDetail>
-          <VideoDetailOther>English</VideoDetailOther>
+          <VideoDetailOther>{parsed_data.sub}</VideoDetailOther>
           <br />
           <VideoDetail>Genre</VideoDetail>
-          <VideoDetailOther>Action, Adventure</VideoDetailOther>
+          <VideoDetailOther>{parsed_data.genre}</VideoDetailOther>
           <br />
           <VideoDetail>Run Time</VideoDetail>
-          <VideoDetailOther>2hr : 22mins</VideoDetailOther>
+          <VideoDetailOther>{parsed_data.runtime}</VideoDetailOther>
           <br />
           <VideoDetail>Release Date</VideoDetail>
-          <VideoDetailOther>January 14, 2022</VideoDetailOther>
+          <VideoDetailOther>{parsed_data.release}</VideoDetailOther>
         </Container>
       </ContainerStyled>
       <Recently />

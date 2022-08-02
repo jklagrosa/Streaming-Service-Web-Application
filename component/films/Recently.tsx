@@ -31,7 +31,7 @@ const Recently = () => {
     // const newMovies = Array.from(displayMovies.data);
     setMovie(displayMovies.data);
 
-    console.log(displayMovies.data);
+    // console.log(displayMovies.data);
   }, [displayMovies]);
 
   const handleWatchMovie = (id: any) => {
@@ -94,7 +94,11 @@ const Recently = () => {
                         </MovieActionStyled>
                         {/*  */}
                         <AbbrTagStyled title={`Watch ${movie.title} now`}>
-                          <MovieTitle>{movie.title}</MovieTitle>
+                          <MovieTitle
+                            onClick={() => handleWatchMovie(movie._id)}
+                          >
+                            {movie.title}
+                          </MovieTitle>
                         </AbbrTagStyled>
                         <br />
                         {/*  */}
@@ -114,7 +118,7 @@ const Recently = () => {
                           <AbbrTagStyled title={`Watch ${movie.title} now`}>
                             <BsPlayFill
                               className={styles.movie_play_button_}
-                              onClick={() => alert("wew")}
+                              onClick={() => handleWatchMovie(movie._id)}
                             />
                           </AbbrTagStyled>
                         </div>
