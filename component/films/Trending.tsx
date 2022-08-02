@@ -20,12 +20,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import styles from "../../styles/Movie.module.scss";
 import { useSelector } from "react-redux";
 import { showAllMovies } from "../../store/store";
-import { useRouter } from "next/router";
+import { IMovie } from "../../types/movie";
 
-const Recently = () => {
+const Trending = () => {
   const [movie, setMovie] = useState<unknown[] | null>(null);
   const displayMovies = useSelector(showAllMovies);
-  const router = useRouter();
 
   useEffect(() => {
     // const newMovies = Array.from(displayMovies.data);
@@ -34,23 +33,16 @@ const Recently = () => {
     console.log(displayMovies.data);
   }, [displayMovies]);
 
-  const handleWatchMovie = (id: any) => {
-    router.replace({
-      pathname: "/please-wait",
-      query: { id },
-    });
-  };
-
   return (
     <>
       <ContainerStyled>
         <Container fluid="lg" className="p-0">
-          <HeaderTagStyled>Recently Added</HeaderTagStyled>
+          <HeaderTagStyled>Trending Now</HeaderTagStyled>
 
           <Row className="gx-3 gy-5">
             {displayMovies.data?.length > 0 && (
               <>
-                {displayMovies.data.slice(0, 6).map((movie: any) => (
+                {displayMovies.data.slice(6, 12).map((movie: any) => (
                   <>
                     <Col xs={12} sm={6} lg={3} xl={4} key={movie._id}>
                       <MovieCardStyled id={styles._movie_Card_styled_override_}>
@@ -93,7 +85,7 @@ const Recently = () => {
                           </AbbrTagStyled>
                         </MovieActionStyled>
                         {/*  */}
-                        <AbbrTagStyled title={`Watch ${movie.title} now`}>
+                        <AbbrTagStyled title="Watch now">
                           <MovieTitle>{movie.title}</MovieTitle>
                         </AbbrTagStyled>
                         <br />
@@ -111,7 +103,7 @@ const Recently = () => {
                         </AbbrTagStyled>
 
                         <div className={styles._movie_play_button_wrapper_}>
-                          <AbbrTagStyled title={`Watch ${movie.title} now`}>
+                          <AbbrTagStyled title="Watch now">
                             <BsPlayFill
                               className={styles.movie_play_button_}
                               onClick={() => alert("wew")}
@@ -135,4 +127,4 @@ const Recently = () => {
   );
 };
 
-export default Recently;
+export default Trending;
