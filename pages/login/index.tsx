@@ -28,7 +28,10 @@ const LoginPage = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleLogInUser = async () => {
+  const handleLogInUser = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
     const response = await axios.post(
       `${BASE_URL}/api/adduser`,
       {
@@ -38,7 +41,7 @@ const LoginPage = () => {
       headersOpts
     );
 
-    if (response.data.success) {
+    if (!response.data.success) {
       toast.error("Please try again later", {
         position: "top-center",
         autoClose: 300000000,
@@ -48,7 +51,14 @@ const LoginPage = () => {
         draggable: true,
         progress: undefined,
       });
+      setLoading(false);
     }
+
+    if (response && response.data && response.data.success) {
+      window.location.href = "/";
+    }
+
+    return response.data;
   };
 
   return (
@@ -84,7 +94,11 @@ const LoginPage = () => {
               {/* END */}
               {/* ########################################### */}
               {/* LOGIN LOADING STATE */}
-              <LoadingButton disabled>Please wait...</LoadingButton>
+              {loading && (
+                <>
+                  <LoadingButton disabled>Please wait...</LoadingButton>
+                </>
+              )}
               {/* END */}
               <BackToHome onClick={() => (window.location.href = "/")}>
                 Back to homepage
