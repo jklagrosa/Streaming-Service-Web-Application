@@ -21,6 +21,7 @@ import styles from "../../styles/Movie.module.scss";
 import { useSelector } from "react-redux";
 import { showAllMovies } from "../../store/store";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const Recently = () => {
   const [movie, setMovie] = useState<unknown[] | null>(null);
@@ -39,6 +40,20 @@ const Recently = () => {
       pathname: "/please-wait",
       query: { id },
     });
+  };
+
+  const handleLikeMovie = async (id: string) => {
+    toast.error("Please try again later", {
+      position: "top-center",
+      autoClose: 300000000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+
+    console.log(id);
   };
 
   return (
@@ -71,6 +86,7 @@ const Recently = () => {
                                   ? { color: "#1877f2" }
                                   : { color: "" }
                               }
+                              onClick={() => handleLikeMovie(movie._id)}
                             />
                           </AbbrTagStyled>
                           <MovieDivider />
