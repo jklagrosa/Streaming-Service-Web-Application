@@ -22,11 +22,16 @@ import { useSelector } from "react-redux";
 import { showAllMovies } from "../../store/store";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { BASE_URL, headersOpts } from "../../utils/other";
+import axios from "axios";
+
+import { useSWRConfig } from "swr";
 
 const Recently = () => {
   const [movie, setMovie] = useState<unknown[] | null>(null);
   const displayMovies = useSelector(showAllMovies);
   const router = useRouter();
+  const { mutate } = useSWRConfig();
 
   useEffect(() => {
     // const newMovies = Array.from(displayMovies.data);
@@ -43,17 +48,31 @@ const Recently = () => {
   };
 
   const handleLikeMovie = async (id: string) => {
-    toast.error("Please try again later", {
-      position: "top-center",
-      autoClose: 300000000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+    const response = await axios.post(
+      `${BASE_URL}/api/like`,
+      {
+        id,
+      },
+      headersOpts
+    );
 
-    console.log(id);
+    if (!response.data.success) {
+      toast.error("Please try again later", {
+        position: "top-center",
+        autoClose: 300000000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      mutate("/api/movies");
+    }
+
+    return response.data;
   };
 
   return (
