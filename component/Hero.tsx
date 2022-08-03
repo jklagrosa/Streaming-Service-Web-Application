@@ -31,6 +31,13 @@ const Hero = () => {
     });
   };
 
+  const handleWatchTrailer = () => {
+    router.replace({
+      pathname: "/please-wait-trailer",
+      query: { id: "62e7df8f537291caacd593be" },
+    });
+  };
+
   return (
     <HeroComponentStyled>
       <Container fluid="lg" className="p-0">
@@ -88,7 +95,7 @@ const Hero = () => {
         <HeroButtonDivider />
         {/*  */}
         <HeroButtonOutline>
-          <HeroButtonWrapper>
+          <HeroButtonWrapper onClick={handleWatchTrailer}>
             <MdInfo className={styles._hero_play_btn_} /> watch trailer
             {/* TRAILER EMBED LINK OF TIMEBOMB */}
             {/* https://www.youtube.com/embed/4pPSx62lZcM */}

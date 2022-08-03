@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ContainerStyled,
   VideoPlayer,
@@ -13,10 +13,10 @@ import Recently from "../../component/films/Recently";
 import Footer from "../../component/Footer";
 import Copyright from "../../component/Copyright";
 
-// import axios from "axios";
-// import { BASE_URL, headersOpts } from "../../utils/other";
-// import { useRouter } from "next/router";
-
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../../utils/other";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 import { GetStaticPaths, GetStaticProps } from "next";
 // import { ParsedUrlQuery } from "querystring";
 import Dbconnection from "../../utils/conn";
@@ -65,6 +65,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const Id = ({ data }: { data: string }) => {
   const parsed_data = data ? JSON.parse(data) : null;
+  const router = useRouter();
+
+  const handleWatchMovie = (id: any) => {
+    router.replace({
+      pathname: "/please-wait",
+      query: { id },
+    });
+  };
 
   return (
     <>
@@ -74,7 +82,7 @@ const Id = ({ data }: { data: string }) => {
           <VideoPlayer
             width="560"
             height="315"
-            src={parsed_data.video}
+            src={parsed_data.trailer}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -82,6 +90,17 @@ const Id = ({ data }: { data: string }) => {
           ></VideoPlayer>
           <VideTitle>{parsed_data.title}</VideTitle>
           <VideoParagraph>{parsed_data.desc}</VideoParagraph>
+
+          <VideoParagraph
+            style={{
+              cursor: "pointer",
+              color: "#1877f2",
+              textDecoration: "underline",
+            }}
+            onClick={() => handleWatchMovie(parsed_data._id)}
+          >
+            Watch the full movie here.
+          </VideoParagraph>
 
           <VideoDetail>Language</VideoDetail>
           <VideoDetailOther>{parsed_data.lang}</VideoDetailOther>

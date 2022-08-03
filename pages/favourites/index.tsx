@@ -39,6 +39,13 @@ const Favourites = () => {
     });
   };
 
+  const handleWatchTrailer = (id: any) => {
+    router.replace({
+      pathname: "/please-wait-trailer",
+      query: { id },
+    });
+  };
+
   return (
     <>
       <Navigation />
@@ -81,7 +88,9 @@ const Favourites = () => {
                 </MovieActionStyled> */}
                         {/*  */}
                         <AbbrTagStyled title={`Watch ${f.title} now`}>
-                          <MovieTitle>{f.title}</MovieTitle>
+                          <MovieTitle onClick={() => handleWatchMovie(f._id)}>
+                            {f.title}
+                          </MovieTitle>
                         </AbbrTagStyled>
                         <br />
                         {/*  */}
@@ -95,7 +104,7 @@ const Favourites = () => {
 
                         <AbbrTagStyled title="Watch the trailer of The rising sun of john">
                           <MovieWatchTrailer
-                            onClick={() => handleWatchMovie(f._id)}
+                            onClick={() => handleWatchTrailer(f._id)}
                           >
                             Watch Trailer
                           </MovieWatchTrailer>

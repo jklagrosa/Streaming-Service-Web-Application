@@ -29,6 +29,9 @@ import { useSWRConfig } from "swr";
 
 const Recently = () => {
   const [movie, setMovie] = useState<unknown[] | null>(null);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const displayMovies = useSelector(showAllMovies);
   const router = useRouter();
   const { mutate } = useSWRConfig();
@@ -40,6 +43,18 @@ const Recently = () => {
     // console.log(displayMovies.data);
   }, [displayMovies]);
 
+  useEffect(() => {
+    const isLoggedIn = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user") || "{}")
+      : "not_loggedin";
+
+    if (isLoggedIn == "not_loggedin") {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   const handleWatchMovie = (id: any) => {
     router.replace({
       pathname: "/please-wait",
@@ -48,8 +63,11 @@ const Recently = () => {
   };
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  const handleWatchTrailer = async () => {
-    
+  const handleWatchTrailer = (id: any) => {
+    router.replace({
+      pathname: "/please-wait-trailer",
+      query: { id },
+    });
   };
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -130,41 +148,92 @@ const Recently = () => {
                           alt={movie.title}
                         />
                         {/*  */}
-                        <MovieActionStyled>
-                          <AbbrTagStyled
-                            title={movie.like ? "Unlike this movie" : "Like"}
-                          >
-                            <AiFillLike
-                              className={styles._movie_component_icons_}
-                              id={styles._movie_component_icons_id_Like_}
-                              style={
-                                movie.like
-                                  ? { color: "#1877f2" }
-                                  : { color: "" }
-                              }
-                              onClick={() => handleLikeMovie(movie._id)}
-                            />
-                          </AbbrTagStyled>
-                          <MovieDivider />
-                          <AbbrTagStyled
-                            title={
-                              movie.fave
-                                ? "Remove from favourites"
-                                : "Add to favourites"
-                            }
-                          >
-                            <BsFillSuitHeartFill
-                              className={styles._movie_component_icons_}
-                              id={styles._movie_component_icons_id_Favs_}
-                              style={
-                                movie.fave
-                                  ? { color: "#e40916" }
-                                  : { color: "" }
-                              }
-                              onClick={() => handleAddToFave(movie._id)}
-                            />
-                          </AbbrTagStyled>
-                        </MovieActionStyled>
+                        {isLoggedIn && (
+                          <>
+                            <MovieActionStyled>
+                              <AbbrTagStyled
+                                title={
+                                  movie.like ? "Unlike this movie" : "Like"
+                                }
+                              >
+                                <AiFillLike
+                                  className={styles._movie_component_icons_}
+                                  id={styles._movie_component_icons_id_Like_}
+                                  style={
+                                    movie.like
+                                      ? { color: "#1877f2" }
+                                      : { color: "" }
+                                  }
+                                  onClick={() => handleLikeMovie(movie._id)}
+                                />
+                              </AbbrTagStyled>
+                              <MovieDivider />
+                              <AbbrTagStyled
+                                title={
+                                  movie.fave
+                                    ? "Remove from favourites"
+                                    : "Add to favourites"
+                                }
+                              >
+                                <BsFillSuitHeartFill
+                                  className={styles._movie_component_icons_}
+                                  id={styles._movie_component_icons_id_Favs_}
+                                  style={
+                                    movie.fave
+                                      ? { color: "#e40916" }
+                                      : { color: "" }
+                                  }
+                                  onClick={() => handleAddToFave(movie._id)}
+                                />
+                              </AbbrTagStyled>
+                            </MovieActionStyled>
+                          </>
+                        )}
+
+                        {/* ############################################# */}
+
+                        {!isLoggedIn && (
+                          <>
+                            <MovieActionStyled>
+                              <AbbrTagStyled
+                                title={
+                                  movie.like ? "Unlike this movie" : "Like"
+                                }
+                              >
+                                <AiFillLike
+                                  className={styles._movie_component_icons_}
+                                  id={styles._movie_component_icons_id_Like_}
+                                  style={
+                                    movie.like
+                                      ? { color: "#1877f2" }
+                                      : { color: "" }
+                                  }
+                                  onClick={() => router.replace("/login")}
+                                />
+                              </AbbrTagStyled>
+                              <MovieDivider />
+                              <AbbrTagStyled
+                                title={
+                                  movie.fave
+                                    ? "Remove from favourites"
+                                    : "Add to favourites"
+                                }
+                              >
+                                <BsFillSuitHeartFill
+                                  className={styles._movie_component_icons_}
+                                  id={styles._movie_component_icons_id_Favs_}
+                                  style={
+                                    movie.fave
+                                      ? { color: "#e40916" }
+                                      : { color: "" }
+                                  }
+                                  onClick={() => router.replace("/login")}
+                                />
+                              </AbbrTagStyled>
+                            </MovieActionStyled>
+                          </>
+                        )}
+
                         {/*  */}
                         <AbbrTagStyled title={`Watch ${movie.title} now`}>
                           <MovieTitle
