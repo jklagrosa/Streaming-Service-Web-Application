@@ -37,6 +37,11 @@ const Recently = () => {
   const { mutate } = useSWRConfig();
 
   useEffect(() => {
+    const d = new Date();
+    // window.localStorage.setItem("id", JSON.stringify(d));
+  }, []);
+
+  useEffect(() => {
     // const newMovies = Array.from(displayMovies.data);
     setMovie(displayMovies.data);
 
@@ -44,16 +49,16 @@ const Recently = () => {
   }, [displayMovies]);
 
   useEffect(() => {
-    const isLoggedIn = window.localStorage.getItem("user")
-      ? JSON.parse(window.localStorage.getItem("user") || "{}")
-      : "not_loggedin";
+    const x = JSON.parse(window.localStorage.getItem("id") || "null");
 
-    if (isLoggedIn == "not_loggedin") {
-      setIsLoggedIn(false);
-    } else {
+    console.log(`wew: ${x}`);
+
+    if (x != "null" || x != null) {
       setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
     }
-  }, []);
+  }, [isLoggedIn]);
 
   const handleWatchMovie = (id: any) => {
     router.replace({
