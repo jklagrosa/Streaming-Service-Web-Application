@@ -75,6 +75,36 @@ const Recently = () => {
     return response.data;
   };
 
+  // ###################################################################
+
+  const handleAddToFave = async (id: string) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/fave`,
+      {
+        id,
+      },
+      headersOpts
+    );
+
+    if (!response.data.success) {
+      toast.error("Please try again later", {
+        position: "top-center",
+        autoClose: 300000000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      mutate("/api/movies");
+    }
+
+    return response.data;
+  };
+
   return (
     <>
       <ContainerStyled>
@@ -124,6 +154,7 @@ const Recently = () => {
                                   ? { color: "#e40916" }
                                   : { color: "" }
                               }
+                              onClick={() => handleAddToFave(movie._id)}
                             />
                           </AbbrTagStyled>
                         </MovieActionStyled>
