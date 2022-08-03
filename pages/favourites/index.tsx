@@ -24,13 +24,20 @@ import Copyright from "../../component/Copyright";
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../../utils/other";
 import useSWR from "swr";
+import { useRouter } from "next/router";
 
 const fetcher = () => axios.get(`${BASE_URL}/api/fave`, headersOpts);
 
 const Favourites = () => {
   const { data, error } = useSWR("/api/fave", fetcher);
+  const router = useRouter();
 
-  console.log(`faves: ${JSON.stringify(data?.data.data)}`);
+  const handleWatchMovie = (id: any) => {
+    router.replace({
+      pathname: "/please-wait",
+      query: { id },
+    });
+  };
 
   return (
     <>
@@ -39,7 +46,16 @@ const Favourites = () => {
         <Container fluid="lg" className="p-0">
           <HeaderTagStyled>My Favourites</HeaderTagStyled>
 
-          <Row className="gx-3 gy-5"></Row>
+          <Row className="gx-3 gy-5">
+            {data?.data.data.length === 0 && (
+              <>
+                <MovieDetail>
+                  You don&apos;t have any saved favorite movies; add one right
+                  away.
+                </MovieDetail>
+              </>
+            )}
+
             {data?.data.data.length > 0 && (
               <>
                 {data?.data.data.map((f: any) => (
@@ -64,28 +80,32 @@ const Favourites = () => {
                   </AbbrTagStyled>
                 </MovieActionStyled> */}
                         {/*  */}
-                        <AbbrTagStyled title="Watch now">
+                        <AbbrTagStyled title={`Watch ${f.title} now`}>
                           <MovieTitle>{f.title}</MovieTitle>
                         </AbbrTagStyled>
                         <br />
                         {/*  */}
-                        <MovieDetail>1hr : 22mins</MovieDetail>
+                        <MovieDetail>{f.runtime}</MovieDetail>
                         <MovieDivider>&#183;</MovieDivider>
-                        <MovieDetail>2015</MovieDetail>
+                        <MovieDetail>{f.release}</MovieDetail>
                         <MovieDivider>&#183;</MovieDivider>
-                        <MovieDetail>Action</MovieDetail>
+                        <MovieDetail>{f.genre}</MovieDetail>
 
                         {/*  */}
 
                         <AbbrTagStyled title="Watch the trailer of The rising sun of john">
-                          <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
+                          <MovieWatchTrailer
+                            onClick={() => handleWatchMovie(f._id)}
+                          >
+                            Watch Trailer
+                          </MovieWatchTrailer>
                         </AbbrTagStyled>
 
                         <div className={styles._movie_play_button_wrapper_}>
-                          <AbbrTagStyled title="Watch now">
+                          <AbbrTagStyled title={`Watch ${f.title} now`}>
                             <BsPlayFill
                               className={styles.movie_play_button_}
-                              onClick={() => alert("wew")}
+                              onClick={() => handleWatchMovie(f._id)}
                             />
                           </AbbrTagStyled>
                         </div>

@@ -47,6 +47,13 @@ const Recently = () => {
     });
   };
 
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  const handleWatchTrailer = async () => {
+    
+  };
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
   const handleLikeMovie = async (id: string) => {
     const response = await axios.post(
       `${BASE_URL}/api/like`,
@@ -176,8 +183,14 @@ const Recently = () => {
 
                         {/*  */}
 
-                        <AbbrTagStyled title="Watch the trailer of The rising sun of john">
-                          <MovieWatchTrailer>Watch Trailer</MovieWatchTrailer>
+                        <AbbrTagStyled
+                          title={`Watch the trailer of ${movie.title}`}
+                        >
+                          <MovieWatchTrailer
+                            onClick={() => handleWatchTrailer(movie._id)}
+                          >
+                            Watch Trailer
+                          </MovieWatchTrailer>
                         </AbbrTagStyled>
 
                         <div className={styles._movie_play_button_wrapper_}>
