@@ -27,7 +27,7 @@ import axios from "axios";
 
 import { useSWRConfig } from "swr";
 
-const Recently = () => {
+const Popular = () => {
   const [movie, setMovie] = useState<unknown[] | null>(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -134,14 +134,14 @@ const Recently = () => {
 
   return (
     <>
-      <ContainerStyled id="new">
+      <ContainerStyled id="popular">
         <Container fluid="lg" className="p-0">
-          <HeaderTagStyled>Recently Added</HeaderTagStyled>
+          <HeaderTagStyled>Popular</HeaderTagStyled>
 
           <Row className="gx-3 gy-5">
             {displayMovies.data?.length > 0 && (
               <>
-                {displayMovies.data.slice(0, 6).map((movie: any) => (
+                {displayMovies.data.slice(8, 12).map((movie: any) => (
                   <>
                     <Col xs={12} sm={6} lg={3} xl={4} key={movie._id}>
                       <MovieCardStyled id={styles._movie_Card_styled_override_}>
@@ -289,4 +289,4 @@ const Recently = () => {
   );
 };
 
-export default Recently;
+export default Popular;

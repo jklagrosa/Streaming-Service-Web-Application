@@ -5,7 +5,9 @@ const PleaseWait = () => {
   return (
     <>
       <div id={styles._please_wait_wrapper_}>
-        <h1>You&apos;re not logged in. Redirecting to login page.</h1>
+        <h1 className={styles._Please_wait}>
+          You&apos;re not logged in. Redirecting to login page.
+        </h1>
       </div>
     </>
   );

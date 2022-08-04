@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 const Navigation = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [show, setShow] = useState(false);
+  const [colorChange, setColorChange] = useState(false);
 
   const router = useRouter();
 
@@ -28,14 +29,37 @@ const Navigation = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const changeNavbarColor = () => {
+      if (window.scrollY >= 400) {
+        setColorChange(true);
+      } else {
+        setColorChange(false);
+      }
+    };
+
+    window.addEventListener("scroll", changeNavbarColor);
+  }, [colorChange]);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
     <>
-      <Navbar expand="lg" className={styles._navigation_wrapper_}>
+      <Navbar
+        expand="lg"
+        className={
+          colorChange
+            ? styles._CHANGED_navigation_wrapper_
+            : styles._navigation_wrapper_
+        }
+      >
         <Container fluid="lg" className="p-0">
-          <Navbar.Brand className={styles._navigation_brand_logo_}>
+          <Navbar.Brand
+            className={styles._navigation_brand_logo_}
+            onClick={() => router.replace("/")}
+            style={{ cursor: "pointer" }}
+          >
             PELI<span>KULA</span>
           </Navbar.Brand>
           <Navbar.Toggle
@@ -103,6 +127,7 @@ const Navigation = () => {
       {/* LINKS OFFCANVAS */}
       <Offcanvas
         show={show}
+        scroll={true}
         onHide={handleClose}
         id={styles._offcanvas_main_wrapper_}
       >

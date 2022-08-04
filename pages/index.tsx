@@ -16,6 +16,7 @@ import useSWR from "swr";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { GET_MOVIES } from "../store/movie";
+import Popular from "../component/films/Popular";
 
 const fetcher = () => axios.get(`${BASE_URL}/api/movies`, headersOpts);
 
@@ -37,9 +38,9 @@ const Home: NextPage = () => {
       {/* ############################ */}
       <Recently />
 
-      {/* <Trending /> */}
-      <HeroBetween />
-      <Recently />
+      <Trending />
+
+      <Popular />
       {/* ############################ */}
       <Footer />
       <Copyright />

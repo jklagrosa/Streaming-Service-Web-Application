@@ -276,3 +276,225 @@
 
 
 }
+
+
+
+
+// CHANGED NAVBAR BG WHEN SCROLLING
+
+._CHANGED_navigation_wrapper_ {
+    position: fixed;
+    width: 100vw;
+    padding: 1rem 2rem;
+    background-color: black;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+    // background-color: transparent;
+
+
+    @media only screen and (min-width: 2501px) {
+        padding: 2rem;
+    }
+
+    @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+        padding: 1.75rem 2rem;
+    }
+
+    @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+        padding: 1.5rem 2rem;
+    }
+
+
+
+
+
+
+
+    @media only screen and (max-width: 768px) {
+        padding: 1rem;
+    }
+
+
+
+
+
+
+    ._navigation_collapse_ {
+        @media only screen and (max-width: 991px) {
+            display: none;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ._navigation_brand_logo_ {
+        color: white;
+        font-size: 2rem;
+        font-weight: 900;
+
+        span {
+            color: $RED;
+        }
+
+
+        @media only screen and (min-width: 2501px) {
+            font-size: 3.5rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            font-size: 3rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+            font-size: 2.5rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+            font-size: 2.25rem;
+        }
+
+        // ###################################################
+
+
+
+
+        @media only screen and (max-width: 576px) {
+            font-size: 1.25rem;
+        }
+    }
+
+
+    ._hamburger_menu_ {
+        color: white;
+        font-size: 40px;
+
+        @media only screen and (max-width: 576px) {
+            font-size: 30px;
+        }
+    }
+
+
+    #_navigation_links_wrapper_ {
+        a {
+            cursor: pointer;
+            font-size: 1rem;
+            color: white;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                color: $DARK_GRAY;
+            }
+
+
+            // MAKE P TAGS USE THIS MEDIA QUERY - REMEMBER THIS!
+
+            @media only screen and (min-width: 2501px) {
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 1.75rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+                font-size: 1.25rem;
+            }
+
+            // ###################################################
+
+
+
+        }
+
+
+
+
+        #_navigation_log_in_btn_ {
+            color: $FB_BLUE;
+            text-decoration: underline;
+
+            &:hover {
+                color: $FB_BLUE_HOVER;
+            }
+        }
+
+
+
+
+
+        #_navigation_log_out_btn_ {
+            color: $RED;
+            text-decoration: underline;
+
+            &:hover {
+                color: $H_RED;
+            }
+        }
+
+        ._navigation_links_main_icon_ {
+            // MAIN ICON
+            color: white;
+
+            @media only screen and (min-width: 2501px) {
+                font-size: 2.5rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+                font-size: 1.25rem;
+            }
+
+            // ###################################################
+        }
+
+        ._navigation_links_icon_ {
+            // CHAKRA UI
+            background-color: $RED;
+
+            &:hover {
+                background-color: $H_RED;
+            }
+
+
+            @media only screen and (min-width: 2501px) {
+                width: 70px;
+                height: 70px;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                width: 60px;
+                height: 60px;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+
+
+
+}
