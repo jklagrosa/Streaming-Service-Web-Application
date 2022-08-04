@@ -8,10 +8,13 @@ import styles from "../styles/Nav.module.scss";
 import { AbbrTagStyled } from "../styles/utils";
 
 import { MdMenuOpen } from "react-icons/md";
+import { useRouter } from "next/router";
 
 const Navigation = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [show, setShow] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const x = window.localStorage.getItem("user")
@@ -49,11 +52,13 @@ const Navigation = () => {
             className={styles._navigation_collapse_}
           >
             <Nav className="me-auto" id={styles._navigation_links_wrapper_}>
-              <Nav.Link href="#link">Home</Nav.Link>
-              <Nav.Link href="#home">Trending</Nav.Link>
-              <Nav.Link href="#link">New</Nav.Link>
-              <Nav.Link href="#link">Popular</Nav.Link>
-              <Nav.Link href="#link">My Fave</Nav.Link>
+              <Nav.Link onClick={() => router.replace("/")}>Home</Nav.Link>
+              <Nav.Link href="#new">New</Nav.Link>
+              <Nav.Link href="#trending">Trending</Nav.Link>
+              <Nav.Link href="#popular">Popular</Nav.Link>
+              <Nav.Link onClick={() => (window.location.href = "/favourites")}>
+                My Fave
+              </Nav.Link>
             </Nav>
 
             {/* ### */}
@@ -107,15 +112,15 @@ const Navigation = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body id={styles._offcanvas_body_}>
-          <a href="#">Home</a>
+          <a onClick={() => router.replace("/")}>Home</a>
           <br />
-          <a href="#">Trending</a>
+          <a href="#new">New</a>
           <br />
-          <a href="#">New</a>
+          <a href="#trending">Trending</a>
           <br />
-          <a href="#">Popular</a>
+          <a href="#popular">Popular</a>
           <br />
-          <a href="#">My Fave</a>
+          <a onClick={() => (window.location.href = "/favourites")}>My Fave</a>
           <br />
           <hr className={styles._offcanvas_divider_} />
 
