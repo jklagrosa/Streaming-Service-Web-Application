@@ -27,7 +27,7 @@ import axios from "axios";
 
 import { useSWRConfig } from "swr";
 
-const Trending = () => {
+const Recently = () => {
   const [movie, setMovie] = useState<unknown[] | null>(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,7 +40,7 @@ const Trending = () => {
     // const newMovies = Array.from(displayMovies.data);
     setMovie(displayMovies.data);
 
-    // console.log(displayMovies.data);
+    console.log(`WEW: ${displayMovies.data?.length}`);
   }, [displayMovies]);
 
   useEffect(() => {
@@ -134,11 +134,21 @@ const Trending = () => {
 
   return (
     <>
-      <ContainerStyled id="trending">
+      <ContainerStyled id="new">
         <Container fluid="lg" className="p-0">
           <HeaderTagStyled>Trending</HeaderTagStyled>
 
           <Row className="gx-3 gy-5">
+            {/* LOADING STATE */}
+            {displayMovies.data?.length == undefined && (
+              <>
+                <MovieDetail>Please wait...</MovieDetail>
+              </>
+            )}
+
+            {/* END */}
+            {/* ####################################### */}
+
             {displayMovies.data?.length > 0 && (
               <>
                 {displayMovies.data.slice(6, 12).map((movie: any) => (
@@ -289,4 +299,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Recently;

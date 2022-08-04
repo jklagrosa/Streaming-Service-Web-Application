@@ -40,7 +40,7 @@ const Recently = () => {
     // const newMovies = Array.from(displayMovies.data);
     setMovie(displayMovies.data);
 
-    // console.log(displayMovies.data);
+    console.log(`WEW: ${displayMovies.data?.length}`);
   }, [displayMovies]);
 
   useEffect(() => {
@@ -139,6 +139,16 @@ const Recently = () => {
           <HeaderTagStyled>Recently Added</HeaderTagStyled>
 
           <Row className="gx-3 gy-5">
+            {/* LOADING STATE */}
+            {displayMovies.data?.length == undefined && (
+              <>
+                <MovieDetail>Please wait...</MovieDetail>
+              </>
+            )}
+
+            {/* END */}
+            {/* ####################################### */}
+
             {displayMovies.data?.length > 0 && (
               <>
                 {displayMovies.data.slice(0, 6).map((movie: any) => (

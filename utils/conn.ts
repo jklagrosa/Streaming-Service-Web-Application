@@ -8,6 +8,7 @@ const Dbconnection = async () => {
 
   return await mongoose
     .connect(process.env.mongo_uri as string)
+
     .then((result) => {
       if (result) return;
     })
