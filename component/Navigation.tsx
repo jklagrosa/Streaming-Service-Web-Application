@@ -106,7 +106,7 @@ const Navigation = () => {
               {/* ### */}
               {/* IF USER IS LOGGED IN */}
               {isLoggedIn && (
-                <AbbrTagStyled title="Logout">
+                <AbbrTagStyled title="Logout as Demo User">
                   <Nav.Link
                     onClick={() => {
                       window.location.href = "/login";

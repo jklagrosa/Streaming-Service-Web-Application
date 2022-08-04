@@ -7,8 +7,11 @@ import {
   FooterLinksTechUsed,
 } from "../styles/footer";
 import { Container, Row, Col } from "react-bootstrap";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
+
   return (
     <>
       <ContainerStyled>
@@ -17,15 +20,21 @@ const Footer = () => {
             <Col xs={12} md={6} lg={4}>
               <FooterCardStyled>
                 <FooterHeader>Explore</FooterHeader>
-                <FooterLinks href="">Home</FooterLinks>
+                <FooterLinks onClick={() => router.replace("/")}>
+                  Home
+                </FooterLinks>
                 <br />
-                <FooterLinks href="">Trending</FooterLinks>
+                <FooterLinks href="#new">New</FooterLinks>
                 <br />
-                <FooterLinks href="">New</FooterLinks>
+                <FooterLinks href="#trending">Trending</FooterLinks>
                 <br />
-                <FooterLinks href="">Popular</FooterLinks>
+                <FooterLinks href="#popular">Popular</FooterLinks>
                 <br />
-                <FooterLinks href="">My List</FooterLinks>
+                <FooterLinks
+                  onClick={() => (window.location.href = "/favourites")}
+                >
+                  My Fave
+                </FooterLinks>
                 <br />
               </FooterCardStyled>
             </Col>
