@@ -29,9 +29,6 @@
 
 ![FAVE](https://user-images.githubusercontent.com/104843990/182857103-9e3613f1-aa6a-4081-aaee-59d5180a1945.png)
 
-
-
-
 #
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
