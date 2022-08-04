@@ -134,7 +134,7 @@ const Recently = () => {
 
   return (
     <>
-      <ContainerStyled id="new">
+      <ContainerStyled id="popular">
         <Container fluid="lg" className="p-0">
           <HeaderTagStyled>Popular</HeaderTagStyled>
 
