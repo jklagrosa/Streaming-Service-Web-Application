@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ContainerStyled,
   VideoPlayer,
@@ -21,6 +21,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 // import { ParsedUrlQuery } from "querystring";
 import Dbconnection from "../../utils/conn";
 import Movie from "../../models/movie";
+import PleaseWait from "../../component/PleaseWait";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   await Dbconnection();
@@ -64,6 +65,23 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const Id = ({ data }: { data: string }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const x = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user") || "false")
+      : null;
+
+    if (x === "false" || x === null) {
+      setIsLoggedIn(false);
+      window.location.href = "/login";
+    } else {
+      setIsLoggedIn(true);
+    }
+
+    console.log(isLoggedIn);
+  }, []);
+
   const parsed_data = data ? JSON.parse(data) : null;
   const router = useRouter();
 
@@ -76,51 +94,57 @@ const Id = ({ data }: { data: string }) => {
 
   return (
     <>
-      <Navigation />
-      <ContainerStyled>
-        <Container fluid="lg" className="p-0">
-          <VideoPlayer
-            width="560"
-            height="315"
-            src={parsed_data.trailer}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></VideoPlayer>
-          <VideTitle>{parsed_data.title}</VideTitle>
-          <VideoParagraph>{parsed_data.desc}</VideoParagraph>
+      {isLoggedIn && (
+        <>
+          <Navigation />
+          <ContainerStyled>
+            <Container fluid="lg" className="p-0">
+              <VideoPlayer
+                width="560"
+                height="315"
+                src={parsed_data.trailer}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></VideoPlayer>
+              <VideTitle>{parsed_data.title}</VideTitle>
+              <VideoParagraph>{parsed_data.desc}</VideoParagraph>
 
-          <VideoParagraph
-            style={{
-              cursor: "pointer",
-              color: "#1877f2",
-              textDecoration: "underline",
-            }}
-            onClick={() => handleWatchMovie(parsed_data._id)}
-          >
-            Watch the full movie here.
-          </VideoParagraph>
+              <VideoParagraph
+                style={{
+                  cursor: "pointer",
+                  color: "#1877f2",
+                  textDecoration: "underline",
+                }}
+                onClick={() => handleWatchMovie(parsed_data._id)}
+              >
+                Watch the full movie here.
+              </VideoParagraph>
 
-          <VideoDetail>Language</VideoDetail>
-          <VideoDetailOther>{parsed_data.lang}</VideoDetailOther>
-          <br />
-          <VideoDetail>Subtitles</VideoDetail>
-          <VideoDetailOther>{parsed_data.sub}</VideoDetailOther>
-          <br />
-          <VideoDetail>Genre</VideoDetail>
-          <VideoDetailOther>{parsed_data.genre}</VideoDetailOther>
-          <br />
-          <VideoDetail>Run Time</VideoDetail>
-          <VideoDetailOther>{parsed_data.runtime}</VideoDetailOther>
-          <br />
-          <VideoDetail>Release Date</VideoDetail>
-          <VideoDetailOther>{parsed_data.release}</VideoDetailOther>
-        </Container>
-      </ContainerStyled>
-      {/* <Recently /> */}
-      <Footer />
-      <Copyright />
+              <VideoDetail>Language</VideoDetail>
+              <VideoDetailOther>{parsed_data.lang}</VideoDetailOther>
+              <br />
+              <VideoDetail>Subtitles</VideoDetail>
+              <VideoDetailOther>{parsed_data.sub}</VideoDetailOther>
+              <br />
+              <VideoDetail>Genre</VideoDetail>
+              <VideoDetailOther>{parsed_data.genre}</VideoDetailOther>
+              <br />
+              <VideoDetail>Run Time</VideoDetail>
+              <VideoDetailOther>{parsed_data.runtime}</VideoDetailOther>
+              <br />
+              <VideoDetail>Release Date</VideoDetail>
+              <VideoDetailOther>{parsed_data.release}</VideoDetailOther>
+            </Container>
+          </ContainerStyled>
+          {/* <Recently /> */}
+          <Footer />
+          <Copyright />
+        </>
+      )}
+      {/* ############################## */}
+      {!isLoggedIn && <PleaseWait />}
     </>
   );
 };
