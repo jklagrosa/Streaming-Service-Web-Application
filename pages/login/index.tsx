@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ContainerStyled,
   LoginWrapper,
@@ -15,6 +15,7 @@ import { Container } from "react-bootstrap";
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../../utils/other";
 import { toast } from "react-toastify";
+import IsLoggedInComp from "../../component/IsLoggedInComp";
 
 type UserData = {
   username: string;
@@ -27,6 +28,23 @@ const LoginPage = () => {
     password: "demouser123",
   });
   const [loading, setLoading] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const x = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user") || "false")
+      : null;
+
+    if (x === "false" || x === null) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+      window.location.href = "/";
+    }
+
+    console.log(isLoggedIn);
+  }, []);
 
   const handleLogInUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,50 +92,58 @@ const LoginPage = () => {
 
   return (
     <>
-      <ContainerStyled>
-        <Container fluid="lg" className="p-0">
-          <LoginWrapper>
-            <LoginTitle>
-              PELI<span>KULA</span>
-            </LoginTitle>
-            <FormWrapper onSubmit={handleLogInUser}>
-              <LabelStyled>Username</LabelStyled>
-              <InputStyled
-                type="text"
-                placeholder="Username"
-                defaultValue={user.username}
-                readOnly
-              />
-              <LabelStyled>Password</LabelStyled>
-              <InputStyled
-                type="password"
-                placeholder="Password"
-                defaultValue={user.password}
-                readOnly
-              />
-              {/* ########################################### */}
-              {/* IF USER IS NOT LOGGED IN */}
-              {!loading && (
-                <>
-                  <LoginButton type="submit">Login as Demo User</LoginButton>
-                </>
-              )}
-              {/* END */}
-              {/* ########################################### */}
-              {/* LOGIN LOADING STATE */}
-              {loading && (
-                <>
-                  <LoadingButton disabled>Please wait...</LoadingButton>
-                </>
-              )}
-              {/* END */}
-              <BackToHome onClick={() => (window.location.href = "/")}>
-                Back to homepage
-              </BackToHome>
-            </FormWrapper>
-          </LoginWrapper>
-        </Container>
-      </ContainerStyled>
+      {!isLoggedIn && (
+        <>
+          <ContainerStyled>
+            <Container fluid="lg" className="p-0">
+              <LoginWrapper>
+                <LoginTitle>
+                  PELI<span>KULA</span>
+                </LoginTitle>
+                <FormWrapper onSubmit={handleLogInUser}>
+                  <LabelStyled>Username</LabelStyled>
+                  <InputStyled
+                    type="text"
+                    placeholder="Username"
+                    defaultValue={user.username}
+                    readOnly
+                  />
+                  <LabelStyled>Password</LabelStyled>
+                  <InputStyled
+                    type="password"
+                    placeholder="Password"
+                    defaultValue={user.password}
+                    readOnly
+                  />
+                  {/* ########################################### */}
+                  {/* IF USER IS NOT LOGGED IN */}
+                  {!loading && (
+                    <>
+                      <LoginButton type="submit">
+                        Login as Demo User
+                      </LoginButton>
+                    </>
+                  )}
+                  {/* END */}
+                  {/* ########################################### */}
+                  {/* LOGIN LOADING STATE */}
+                  {loading && (
+                    <>
+                      <LoadingButton disabled>Please wait...</LoadingButton>
+                    </>
+                  )}
+                  {/* END */}
+                  <BackToHome onClick={() => (window.location.href = "/")}>
+                    Back to homepage
+                  </BackToHome>
+                </FormWrapper>
+              </LoginWrapper>
+            </Container>
+          </ContainerStyled>
+        </>
+      )}
+      {/* ######################## */}
+      {isLoggedIn && <IsLoggedInComp />}
     </>
   );
 };

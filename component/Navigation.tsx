@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,6 +12,18 @@ import { MdMenuOpen } from "react-icons/md";
 const Navigation = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const x = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user") || "false")
+      : null;
+
+    if (x === "false" || x === null) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -41,19 +53,22 @@ const Navigation = () => {
               <Nav.Link href="#home">Trending</Nav.Link>
               <Nav.Link href="#link">New</Nav.Link>
               <Nav.Link href="#link">Popular</Nav.Link>
-              <Nav.Link href="#link">My List</Nav.Link>
+              <Nav.Link href="#link">My Fave</Nav.Link>
             </Nav>
 
             {/* ### */}
 
             <Nav className="ms-auto" id={styles._navigation_links_wrapper_}>
-              <AbbrTagStyled title="Search movies">
+              {/* <AbbrTagStyled title="Search movies">
                 <Nav.Link href="#link">Search</Nav.Link>
-              </AbbrTagStyled>
+              </AbbrTagStyled> */}
               {/* IF USER IS NOT LOGGED IN */}
               {!isLoggedIn && (
                 <AbbrTagStyled title="Login as Demo User">
-                  <Nav.Link href="#link" id={styles._navigation_log_in_btn_}>
+                  <Nav.Link
+                    onClick={() => (window.location.href = "/login")}
+                    id={styles._navigation_log_in_btn_}
+                  >
                     Login
                   </Nav.Link>
                 </AbbrTagStyled>
@@ -61,9 +76,15 @@ const Navigation = () => {
               {/* END */}
               {/* ### */}
               {/* IF USER IS LOGGED IN */}
-              {!isLoggedIn && (
+              {isLoggedIn && (
                 <AbbrTagStyled title="Logout">
-                  <Nav.Link href="#link" id={styles._navigation_log_out_btn_}>
+                  <Nav.Link
+                    onClick={() => {
+                      window.location.href = "/login";
+                      window.localStorage.removeItem("user");
+                    }}
+                    id={styles._navigation_log_out_btn_}
+                  >
                     Logout
                   </Nav.Link>
                 </AbbrTagStyled>
@@ -97,15 +118,36 @@ const Navigation = () => {
           <a href="#">My Fave</a>
           <br />
           <hr className={styles._offcanvas_divider_} />
-          <a href="#">Search</a>
-          <br />
+
           {/* IF USER IS NOT LOGGED IN */}
-          <a id={styles._link_action_btns_IN}>Log In</a>
-          {/* END */}
-          <br />
+          {!isLoggedIn && (
+            <>
+              <a
+                id={styles._link_action_btns_IN}
+                onClick={() => (window.location.href = "/login")}
+              >
+                Log In
+              </a>
+
+              <br />
+            </>
+          )}
           {/* ###################################### */}
           {/* IF USER IS LOGGED IN */}
-          <a id={styles._link_action_btns_OUT}>Log Out</a>
+          {isLoggedIn && (
+            <>
+              <a
+                id={styles._link_action_btns_OUT}
+                onClick={() => {
+                  window.location.href = "/login";
+                  window.localStorage.removeItem("user");
+                }}
+              >
+                Log Out
+              </a>
+            </>
+          )}
+
           {/* END */}
         </Offcanvas.Body>
       </Offcanvas>
