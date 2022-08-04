@@ -64,6 +64,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const Id = ({ data }: { data: string }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const x = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user") || "false")
+      : null;
+
+    if (x === "false" || x === null) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+
+    console.log(isLoggedIn);
+  }, []);
+
   const parsed_data = data ? JSON.parse(data) : null;
 
   return (

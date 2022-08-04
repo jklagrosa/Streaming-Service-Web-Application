@@ -55,7 +55,18 @@ const LoginPage = () => {
     }
 
     if (response && response.data && response.data.success) {
-      window.location.href = "/";
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.data._id)
+      );
+
+      const isUser = window.localStorage.getItem("user")
+        ? JSON.parse(window.localStorage.getItem("user") || "false")
+        : null;
+
+      if (isUser !== null || isUser !== "false") {
+        window.location.href = "/";
+      }
     }
 
     return response.data;
