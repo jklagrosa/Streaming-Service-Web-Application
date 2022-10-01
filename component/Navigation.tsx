@@ -77,9 +77,16 @@ const Navigation = () => {
           >
             <Nav className="me-auto" id={styles._navigation_links_wrapper_}>
               <Nav.Link onClick={() => router.replace("/")}>Home</Nav.Link>
-              <Nav.Link href="#new">New</Nav.Link>
-              <Nav.Link href="#trending">Trending</Nav.Link>
-              <Nav.Link href="#popular">Popular</Nav.Link>
+
+              <Nav.Link href={router.pathname !== "/" ? "/" : "#new"}>
+                New
+              </Nav.Link>
+              <Nav.Link href={router.pathname !== "/" ? "/" : "#trending"}>
+                Trending
+              </Nav.Link>
+              <Nav.Link href={router.pathname !== "/" ? "/" : "#popular"}>
+                Popular
+              </Nav.Link>
               <Nav.Link onClick={() => (window.location.href = "/favourites")}>
                 My Fave
               </Nav.Link>
@@ -139,11 +146,11 @@ const Navigation = () => {
         <Offcanvas.Body id={styles._offcanvas_body_}>
           <a onClick={() => router.replace("/")}>Home</a>
           <br />
-          <a href="#new">New</a>
+          <a href={router.pathname !== "/" ? "/" : "#new"}>New</a>
           <br />
-          <a href="#trending">Trending</a>
+          <a href={router.pathname !== "/" ? "/" : "#trending"}>Trending</a>
           <br />
-          <a href="#popular">Popular</a>
+          <a href={router.pathname !== "/" ? "/" : "#popular"}>Popular</a>
           <br />
           <a onClick={() => (window.location.href = "/favourites")}>My Fave</a>
           <br />
