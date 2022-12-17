@@ -27,7 +27,7 @@ const Navigation = () => {
     } else {
       setIsLoggedIn(true);
     }
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const changeNavbarColor = () => {
@@ -87,7 +87,14 @@ const Navigation = () => {
               <Nav.Link href={router.pathname !== "/" ? "/" : "#popular"}>
                 Popular
               </Nav.Link>
-              <Nav.Link onClick={() => (window.location.href = "/favourites")}>
+              <Nav.Link
+                onClick={() => {
+                  if (isLoggedIn) {
+                    return (window.location.href = "/favourites");
+                  }
+                  return router.replace("/login");
+                }}
+              >
                 My Fave
               </Nav.Link>
             </Nav>
@@ -152,7 +159,16 @@ const Navigation = () => {
           <br />
           <a href={router.pathname !== "/" ? "/" : "#popular"}>Popular</a>
           <br />
-          <a onClick={() => (window.location.href = "/favourites")}>My Fave</a>
+          <a
+            onClick={() => {
+              if (isLoggedIn) {
+                return (window.location.href = "/favourites");
+              }
+              return router.replace("/login");
+            }}
+          >
+            My Fave
+          </a>
           <br />
           <hr className={styles._offcanvas_divider_} />
 
